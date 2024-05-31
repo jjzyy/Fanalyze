@@ -4,6 +4,7 @@ import seaborn as sns
 import matplotlib.pyplot as plt
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import praw
+import streamlit.components.v1 as components  # Import components directly
 
 # Initialize the VADER sentiment analyzer
 analyzer = SentimentIntensityAnalyzer()
@@ -66,6 +67,14 @@ normalized_scored_df = fetch_and_analyze_sentiments()
 
 # Streamlit app layout
 st.title("NBA Team Sentiment Analysis")
+
+# Embed the link using an iframe
+components.html(
+    """
+    <iframe src="https://arc.net/l/quote/fsdottsc" width="800" height="600"></iframe>
+    """, 
+    height=600
+)
 
 # Display the dataframe
 st.write("Sentiment Analysis Data")
