@@ -9,7 +9,6 @@ import streamlit.components.v1 as components
 from dotenv import load_dotenv
 import os
 
-
 # Initialize the VADER sentiment analyzer
 analyzer = SentimentIntensityAnalyzer()
 
