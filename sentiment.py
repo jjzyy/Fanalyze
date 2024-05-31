@@ -209,8 +209,8 @@ normalized_scored_df = fetch_and_analyze_sentiments()
 # Sidebar for navigation
 with st.sidebar:
     selected = option_menu(
-        "Main Menu", 
-        ["Home", "Sentiment Data", "Sentiment Plots", "Embedded Content"], 
+        "Fanalyze", 
+        ["Home", "Sentiment Data", "Sentiment Plots", "Interactive Dashboard"], 
         icons=['house', 'bar-chart', 'graph-up-arrow', 'link'], 
         menu_icon="cast", 
         default_index=0
@@ -218,7 +218,7 @@ with st.sidebar:
 
 # Home page
 if selected == "Home":
-    st.title("NBA Team Sentiment Analysis")
+    st.title("Fanalyze: NBA Team Sentiment Analysis")
     st.write("""
         This application analyzes the sentiment of NBA team subreddits using the VADER sentiment analysis tool.
         Use the sidebar to navigate through different sections of the app.
@@ -258,9 +258,9 @@ elif selected == "Sentiment Plots":
     plt.tight_layout()
     st.pyplot(plt.gcf())  # Display the plot in Streamlit
 
-# Embedded Content page
-elif selected == "Embedded Content":
-    st.title("Embedded Content")
+# Embedded Content page: Interactive Dashboard
+elif selected == "Interactive Dashboard":
+    st.title("Interactive Dashboard")
     
     iframe_code = """
         <iframe src="https://public.tableau.com/views/NBAFanSentiment/Dashboard1?:showVizHome=no&:embed=true" 
