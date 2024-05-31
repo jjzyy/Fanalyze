@@ -214,7 +214,7 @@ normalized_scored_df = fetch_and_analyze_sentiments()
 with st.sidebar:
     selected = option_menu(
         "Fanalyze", 
-        ["Home", "Interactive Dashboard", "Mean Sentiment Score", "Mean Compound Score by Revenue", "Mean Score by Championships", "Team Win Percentage", "Interactive Map"], 
+        ["Home", "Interactive Map", "Mean Sentiment Score", "Mean Compound Score by Revenue", "Mean Score by Championships", "Team Win Percentage", "Interactive Dashboard"], 
         icons=['house', 'bar-chart','bar-chart', 'graph-up-arrow', 'graph-up-arrow', 'bar-chart'], 
         menu_icon="cast", 
         default_index=0
