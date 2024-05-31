@@ -26,7 +26,7 @@ load_dotenv()
 reddit = praw.Reddit(
     client_id = os.getenv('CLIENT_ID'),
     client_secret = os.getenv('CLIENT_SECRET'),
-    user_agent = 'jzyNBAS'
+    user_agent = os.getenv('USER_AGENT')
 )
 
 nba_teams = ['bostonceltics', 'GoNets', 'NYKnicks', 'sixers', 'torontoraptors', 'chicagobulls', 'clevelandcavs', 'DetroitPistons', 'pacers', 'MkeBucks', 'AtlantaHawks', 'CharlotteHornets', 'heat', 'OrlandoMagic', 'washingtonwizards', 'denvernuggets', 'timberwolves', 'Thunder', 'ripcity', 'UtahJazz', 'Warriors', 'LAClippers', 'Lakers', 'suns', 'kings', 'mavericks', 'Rockets', 'memphisgrizzlies', 'NOLAPelicans', 'NBASpurs']
