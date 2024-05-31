@@ -1,5 +1,3 @@
-# WARNING!!! - DON'T FORGET TO INSTALL pip install streamlit-option-menu
-
 import streamlit as st
 import pandas as pd
 import seaborn as sns
@@ -7,7 +5,7 @@ import matplotlib.pyplot as plt
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
 import praw
 from streamlit_option_menu import option_menu
-import streamlit.components.v1 as components  # Correctly import components
+import streamlit.components.v1 as components
 
 # Initialize the VADER sentiment analyzer
 analyzer = SentimentIntensityAnalyzer()
@@ -63,6 +61,9 @@ def fetch_and_analyze_sentiments():
         'var_compound_score': var_grouped_df.values * 100,
     })
 
+    # Map Reddit usernames to actual NBA team names
+    normalized_scored_df['team_name'] = normalized_scored_df['team_name'].map(nba_teams_formatted)
+
     return normalized_scored_df
 
 # Fetch and analyze sentiment data
@@ -111,22 +112,4 @@ elif selected == "Sentiment Plots":
     st.pyplot(plt.gcf())  # Display the plot in Streamlit
 
     # Plot of mean vs. standard deviation of sentiment scores by NBA team
-    st.write("Mean vs. Standard Deviation of Sentiment Scores by NBA Team")
-    plt.figure(figsize=(10, 6))
-    sns.scatterplot(data=normalized_scored_df, x='mean_compound_score', y='std_compound_score', hue='team_name', legend=False)
-    plt.title('Mean vs. Standard Deviation of Sentiment Scores by NBA Team')
-    plt.xlabel('Mean Compound Sentiment Score')
-    plt.ylabel('Standard Deviation of Compound Sentiment Score')
-    plt.tight_layout()
-    st.pyplot(plt.gcf())  # Display the plot in Streamlit
-
-# Embedded Content page
-elif selected == "Embedded Content":
-    st.title("Embedded Content")
-    st.write("Here is the embedded content from the specified link.")
-    components.html(
-        """
-        <iframe src="https://public.tableau.com/app/profile/aimee.tsai/viz/NBAFanSentiment/Dashboard1" width="800" height="600"></iframe>
-        """, 
-        height=600
-    )
+    st
