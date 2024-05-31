@@ -5,4 +5,4 @@ seaborn
 vaderSentiment
 praw
 streamlit-option-menu
-dotenv
+python-dotenv
