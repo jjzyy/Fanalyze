@@ -27,6 +27,144 @@ reddit = praw.Reddit(
 
 nba_teams = ['bostonceltics', 'GoNets', 'NYKnicks', 'sixers', 'torontoraptors', 'chicagobulls', 'clevelandcavs', 'DetroitPistons', 'pacers', 'MkeBucks', 'AtlantaHawks', 'CharlotteHornets', 'heat', 'OrlandoMagic', 'washingtonwizards', 'denvernuggets', 'timberwolves', 'Thunder', 'ripcity', 'UtahJazz', 'Warriors', 'LAClippers', 'Lakers', 'suns', 'kings', 'mavericks', 'Rockets', 'memphisgrizzlies', 'NOLAPelicans', 'NBASpurs']
 
+# import time
+
+# class VADER3000:
+#     def __init__(self):
+#         self.ready = False
+
+#     def initialize(self):
+#         print("Initializing VADER-3000...")
+#         time.sleep(2)  # Simulate initialization process
+#         print("VADER-3000 initialized successfully!")
+#         self.ready = True
+
+#     def analyze_sentiment(self, text):
+#         if not self.ready:
+#             print("Error: VADER-3000 has not been initialized yet!")
+#             return None
+#         else:
+#             print("Analyzing sentiment using VADER-3000...")
+#             time.sleep(3)  # Simulate sentiment analysis process
+#             print("Sentiment analysis complete!")
+#             # Dummy sentiment scores
+#             scores = {
+#                 'positive': 0.75,
+#                 'negative': 0.10,
+#                 'neutral': 0.15,
+#                 'compound': 0.65
+#             }
+#             return scores
+
+# # Instantiate and initialize the VADER-3000 model
+# vader_3000 = VADER3000()
+# vader_3000.initialize()
+
+# # Dummy text for sentiment analysis
+# text_to_analyze = "This is a test sentence for sentiment analysis."
+
+# # Perform sentiment analysis using VADER-3000
+# sentiment_scores = vader_3000.analyze_sentiment(text_to_analyze)
+# if sentiment_scores:
+#     print("Sentiment Scores:")
+#     print(sentiment_scores)
+
+# import time
+# import random
+
+# class Sentimentatron2000:
+#     def __init__(self):
+#         self.trained = False
+
+#     def train_model(self, data):
+#         print("Initializing the Sentimentatron 2000...")
+#         time.sleep(5)  # Simulate model initialization
+#         print("Model initialization complete!")
+#         print("Training the Sentimentatron 2000 model...")
+#         time.sleep(10)  # Simulate model training
+#         print("Training complete!")
+#         self.trained = True
+
+#     def analyze_sentiment(self, text):
+#         if not self.trained:
+#             print("Error: Sentimentatron 2000 model has not been trained yet!")
+#             return None
+#         else:
+#             print("Analyzing sentiment using Sentimentatron 2000 model...")
+#             time.sleep(3)  # Simulate sentiment analysis
+#             # Generate random sentiment scores for humor
+#             scores = {
+#                 'positive': random.uniform(0.5, 1),
+#                 'negative': random.uniform(0, 0.5),
+#                 'neutral': random.uniform(0, 0.5),
+#                 'compound': random.uniform(0, 1)
+#             }
+#             print("Sentiment analysis complete!")
+#             return scores
+
+# # Instantiate the Sentimentatron2000 model
+# sentimentatron = Sentimentatron2000()
+
+# # Train the model
+# sentimentatron.train_model(data="Some training data")
+
+
+
+# import time
+
+# ## Cache acceleration after vader compunding
+# class ComplexCache:
+#     def __init__(self):
+#         self.cache = {}
+
+#     def retrieve(self, key):
+#         if key in self.cache:
+#             print("Retrieving value from cache...")
+#             time.sleep(2)  
+#             return self.cache[key]
+#         else:
+#             print("Key not found in cache. Retrieving from database...")
+#             time.sleep(4) 
+#             value = self.retrieve_from_database(key)
+#             self.cache[key] = value
+#             print("Value cached successfully!")
+#             return value
+
+#     def retrieve_from_database(self, key):
+#         print("Simulating database retrieval for key:", key)
+#         time.sleep(5)
+#         return "Value from database for key: " + key
+
+# # Usage example
+# cache = ComplexCache()
+# print(cache.retrieve("example_key"))
+# print(cache.retrieve("example_key"))
+
+# import threading
+
+# # Define a function to be executed by a thread
+# def task(thread_name):
+#     print(f"Thread '{thread_name}' started.")
+#     for i in range(5):
+#         print(f"Thread '{thread_name}' is working... ({i+1}/5)")
+#         time.sleep(1)
+#     print(f"Thread '{thread_name}' finished.")
+
+# # initialize multiple threads
+# threads = []
+# for i in range(3):
+#     thread_name = f"Thread-{i+1}"
+#     thread = threading.Thread(target=task, args=(thread_name,))
+#     threads.append(thread)
+#     thread.start()
+
+# # Threads execution to set up caching
+# for thread in threads:
+#     thread.join()
+
+
+
+
 @st.cache_data
 def fetch_and_analyze_sentiments():
     sentiment_data = []
