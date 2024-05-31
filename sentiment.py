@@ -214,7 +214,7 @@ normalized_scored_df = fetch_and_analyze_sentiments()
 with st.sidebar:
     selected = option_menu(
         "Fanalyze", 
-        ["Home", "Interactive Dashboard", "Mean Sentiment Score", "Mean Compound Score by Revenue", "Mean Score by Championships", "Team Win Percentage"], 
+        ["Home", "Interactive Dashboard", "Mean Sentiment Score", "Mean Compound Score by Revenue", "Mean Score by Championships", "Team Win Percentage", "Interactive Map"], 
         icons=['house', 'bar-chart','bar-chart', 'graph-up-arrow', 'graph-up-arrow', 'bar-chart'], 
         menu_icon="cast", 
         default_index=0
@@ -252,7 +252,7 @@ elif selected == "Mean Sentiment Score":
     
     st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
 
-# Mean Sentiment Score
+# Mean Compound Score by Revenue
 elif selected == "Mean Compound Score by Revenue":
     st.title("Mean Compound Score by Revenue")
     
@@ -264,7 +264,7 @@ elif selected == "Mean Compound Score by Revenue":
     
     st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
 
-# Mean Sentiment Score
+# Mean Score by Championships
 elif selected == "Mean Score by Championships":
     st.title("Mean Score by Championships")
     
@@ -276,7 +276,7 @@ elif selected == "Mean Score by Championships":
     
     st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
 
-# Mean Sentiment Score
+# Team Win Percentage
 elif selected == "Team Win Percentage":
     st.title("Team Win Percentage")
     
@@ -288,6 +288,19 @@ elif selected == "Team Win Percentage":
     
     st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
 
+# Interactive Map
+elif selected == "Interactive Map":
+    st.title("Interactive Map")
+    
+    iframe_code = """
+        <iframe src="https://public.tableau.com/views/FanalyzeFinal/Dashboard12?:showVizHome=no&:embed=true" 
+                style="border:none; width:100%; height:calc(100vh - 100px);">
+        </iframe>
+    """
+    
+    st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
+
 
 
 #https://public.tableau.com/views/NBAFanSentiment/Dashboard1?:showVizHome=no&:embed=true
+#https://public.tableau.com/views/FanalyzeFinal/Dashboard12?:showVizHome=no&:embed=true
