@@ -6,3 +6,5 @@ seaborn
 vaderSentiment
 praw
 streamlit-option-menu
+os
+dotenv
