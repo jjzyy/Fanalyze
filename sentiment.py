@@ -217,8 +217,8 @@ normalized_scored_df = fetch_and_analyze_sentiments()
 with st.sidebar:
     selected = option_menu(
         "Fanalyze", 
-        ["Home", "Sentiment Data", "Sentiment Plots", "Interactive Dashboard"], 
-        icons=['house', 'bar-chart', 'graph-up-arrow', 'link'], 
+        ["Home", "Interactive Dashboard", "Mean Sentiment Score", "Mean Compound Score by Revenue", "Mean Score by Championships", "Team Win Percentage"], 
+        icons=['house', 'bar-chart','bar-chart', 'graph-up-arrow', 'graph-up-arrow', 'bar-chart'], 
         menu_icon="cast", 
         default_index=0
     )
@@ -227,52 +227,70 @@ with st.sidebar:
 if selected == "Home":
     st.title("Fanalyze: NBA Sentiment Analysis")
     st.write("""
-        This application analyzes the sentiment of NBA team subreddits using the VADER sentiment analysis tool.
-        Use the sidebar to navigate through different sections of the app.
+        Analyze the sentiment of NBA team subreddits using the VADER sentiment analysis tool.
+        Use the sidebar to navigate through different parts of the app.
     """)
 
-# Sentiment Data page
-elif selected == "Sentiment Data":
-    st.title("Sentiment Analysis Data")
-    st.write("Below is the sentiment analysis data for each NBA team.")
-    st.dataframe(normalized_scored_df)
-
-# Sentiment Plots page
-elif selected == "Sentiment Plots":
-    st.title("Sentiment Analysis Plots")
-    
-    # Plot of mean compound scores by NBA team
-    st.write("Mean Compound Sentiment Score by NBA Team")
-    sns.set_palette("deep")
-    normalized_scored_df_sorted = normalized_scored_df.sort_values(by='mean_compound_score', ascending=False)
-
-    plt.figure(figsize=(11, 6))
-    sns.barplot(data=normalized_scored_df_sorted, x='team_name', y='mean_compound_score')
-    plt.title('Mean Compound Sentiment Score by NBA Team')
-    plt.xlabel('NBA Team')
-    plt.ylabel('Mean Compound Sentiment Score')
-    plt.xticks(rotation=90)
-    plt.tight_layout()  # Adjust layout to prevent overlap of labels
-    st.pyplot(plt.gcf())  # Display the plot in Streamlit
-
-    # Plot of mean vs. standard deviation of sentiment scores by NBA team
-    st.write("Mean vs. Standard Deviation of Sentiment Scores by NBA Team")
-    plt.figure(figsize=(10, 6))
-    sns.scatterplot(data=normalized_scored_df, x='mean_compound_score', y='std_compound_score', hue='team_name', legend=False)
-    plt.title('Mean vs. Standard Deviation of Sentiment Scores by NBA Team')
-    plt.xlabel('Mean Compound Sentiment Score')
-    plt.ylabel('Standard Deviation of Compound Sentiment Score')
-    plt.tight_layout()
-    st.pyplot(plt.gcf())  # Display the plot in Streamlit
-
-# Embedded Content page: Interactive Dashboard
+# Entire Interactive Dashboard
 elif selected == "Interactive Dashboard":
     st.title("Interactive Dashboard")
     
     iframe_code = """
-        <iframe src="https://public.tableau.com/views/NBAFanSentiment/Dashboard1?:showVizHome=no&:embed=true" 
+        <iframe src="https://public.tableau.com/views/Fanalyze_17171395622390/Dashboard1?:showVizHome=no&:embed=true" 
                 style="border:none; width:100%; height:calc(100vh - 100px);">
         </iframe>
     """
     
     st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
+
+# Mean Sentiment Score
+elif selected == "Mean Sentiment Score":
+    st.title("Mean Sentiment Score")
+    
+    iframe_code = """
+        <iframe src="https://public.tableau.com/views/Fanalyze_17171395622390/Dashboard2?:showVizHome=no&:embed=true" 
+                style="border:none; width:100%; height:calc(100vh - 100px);">
+        </iframe>
+    """
+    
+    st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
+
+# Mean Sentiment Score
+elif selected == "Mean Compound Score by Revenue":
+    st.title("Mean Compound Score by Revenue")
+    
+    iframe_code = """
+        <iframe src="https://public.tableau.com/views/Fanalyze_17171395622390/Dashboard3?:showVizHome=no&:embed=true" 
+                style="border:none; width:100%; height:calc(100vh - 100px);">
+        </iframe>
+    """
+    
+    st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
+
+# Mean Sentiment Score
+elif selected == "Mean Score by Championships":
+    st.title("Mean Score by Championships")
+    
+    iframe_code = """
+        <iframe src="https://public.tableau.com/views/Fanalyze_17171395622390/Dashboard4?:showVizHome=no&:embed=true" 
+                style="border:none; width:100%; height:calc(100vh - 100px);">
+        </iframe>
+    """
+    
+    st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
+
+# Mean Sentiment Score
+elif selected == "Team Win Percentage":
+    st.title("Team Win Percentage")
+    
+    iframe_code = """
+        <iframe src="https://public.tableau.com/views/Fanalyze_17171395622390/Dashboard5?:showVizHome=no&:embed=true" 
+                style="border:none; width:100%; height:calc(100vh - 100px);">
+        </iframe>
+    """
+    
+    st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
+
+
+
+#https://public.tableau.com/views/NBAFanSentiment/Dashboard1?:showVizHome=no&:embed=true
