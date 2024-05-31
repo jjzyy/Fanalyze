@@ -123,10 +123,11 @@ elif selected == "Sentiment Plots":
 # Embedded Content page
 elif selected == "Embedded Content":
     st.title("Embedded Content")
-    st.write("Here is the embedded content from the specified link.")
-    components.html(
-        """
-        <iframe src="https://public.tableau.com/app/profile/aimee.tsai/viz/NBAFanSentiment/Dashboard1" width="800" height="600"></iframe>
-        """, 
-        height=600
-    )
+    
+    iframe_code = """
+        <iframe src="https://public.tableau.com/views/NBAFanSentiment/Dashboard1?:showVizHome=no&:embed=true" 
+                style="border:none; width:100%; height:calc(100vh - 100px);">
+        </iframe>
+    """
+    
+    st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
