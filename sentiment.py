@@ -3,9 +3,7 @@ import pandas as pd
 import seaborn as sns
 import matplotlib.pyplot as plt
 from vaderSentiment.vaderSentiment import SentimentIntensityAnalyzer
-#from nltk.sentiment.vader import SentimentIntensityAnalyzer
 import praw
-#import nltk
 
 # Initialize the VADER sentiment analyzer
 analyzer = SentimentIntensityAnalyzer()
@@ -14,7 +12,7 @@ analyzer = SentimentIntensityAnalyzer()
 num_records = 25
 
 nba_teams_formatted = {
-    'bostonceltics': 'Boston Celtics', 'GoNets': 'Brooklyn Nets', 'NYKnicks': 'New York Knicks', 'sixers': 'Philedlephia 76ers', 'torontoraptors': 'Toronto Raptors', 'chicagobulls': 'Chicago Bulls', 'clevelandcavs': 'Cleveland Cavaliers', 'DetroitPistons': 'Detroit Pistons', 'pacers': 'Indiana Pacers', 'MkeBucks': 'Milwaukee Bucks', 'AtlantaHawks': 'Atlanta Hawks', 'CharlotteHornets': 'Charlotte Hornets', 'heat': 'Miami Heat', 'OrlandoMagic': 'Orlando Magic', 'washingtonwizards': 'Washington Wizards', 'denvernuggets': 'Denver Nuggets', 'timberwolves': 'Minnesota Timberwolves', 'Thunder': 'Oklahoma City Thunder', 'ripcity': 'Portland Trailblazers', 'UtahJazz': 'Utah Jazz', 'Warriors': 'Golden State Warriors', 'LAClippers': 'Los Angeles Clippers', 'Lakers': 'Los Angeles Lakers', 'suns': 'Phoenix Suns', 'kings': 'Sacramento Kings', 'mavericks': 'Dallas Mavericks', 'Rockets': 'Houston Rockets', 'memphisgrizzlies': 'Memphis Grizzlies', 'NOLAPelicans': 'New Orleans Pelicans', 'NBASpurs': 'San Antonio Spurs'
+    'bostonceltics': 'Boston Celtics', 'GoNets': 'Brooklyn Nets', 'NYKnicks': 'New York Knicks', 'sixers': 'Philadelphia 76ers', 'torontoraptors': 'Toronto Raptors', 'chicagobulls': 'Chicago Bulls', 'clevelandcavs': 'Cleveland Cavaliers', 'DetroitPistons': 'Detroit Pistons', 'pacers': 'Indiana Pacers', 'MkeBucks': 'Milwaukee Bucks', 'AtlantaHawks': 'Atlanta Hawks', 'CharlotteHornets': 'Charlotte Hornets', 'heat': 'Miami Heat', 'OrlandoMagic': 'Orlando Magic', 'washingtonwizards': 'Washington Wizards', 'denvernuggets': 'Denver Nuggets', 'timberwolves': 'Minnesota Timberwolves', 'Thunder': 'Oklahoma City Thunder', 'ripcity': 'Portland Trailblazers', 'UtahJazz': 'Utah Jazz', 'Warriors': 'Golden State Warriors', 'LAClippers': 'Los Angeles Clippers', 'Lakers': 'Los Angeles Lakers', 'suns': 'Phoenix Suns', 'kings': 'Sacramento Kings', 'mavericks': 'Dallas Mavericks', 'Rockets': 'Houston Rockets', 'memphisgrizzlies': 'Memphis Grizzlies', 'NOLAPelicans': 'New Orleans Pelicans', 'NBASpurs': 'San Antonio Spurs'
 }
 
 reddit = praw.Reddit(
@@ -25,6 +23,7 @@ reddit = praw.Reddit(
 
 nba_teams = ['bostonceltics', 'GoNets', 'NYKnicks', 'sixers', 'torontoraptors', 'chicagobulls', 'clevelandcavs', 'DetroitPistons', 'pacers', 'MkeBucks', 'AtlantaHawks', 'CharlotteHornets', 'heat', 'OrlandoMagic', 'washingtonwizards', 'denvernuggets', 'timberwolves', 'Thunder', 'ripcity', 'UtahJazz', 'Warriors', 'LAClippers', 'Lakers', 'suns', 'kings', 'mavericks', 'Rockets', 'memphisgrizzlies', 'NOLAPelicans', 'NBASpurs']
 
+@st.cache_data
 def fetch_and_analyze_sentiments():
     sentiment_data = []
 
@@ -89,4 +88,9 @@ st.pyplot(plt.gcf())  # Display the plot in Streamlit
 # Plot of mean vs. standard deviation of sentiment scores by NBA team
 st.write("Mean vs. Standard Deviation of Sentiment Scores by NBA Team")
 plt.figure(figsize=(10, 6))
-
+sns.scatterplot(data=normalized_scored_df, x='mean_compound_score', y='std_compound_score', hue='team_name', legend=False)
+plt.title('Mean vs. Standard Deviation of Sentiment Scores by NBA Team')
+plt.xlabel('Mean Compound Sentiment Score')
+plt.ylabel('Standard Deviation of Compound Sentiment Score')
+plt.tight_layout()
+st.pyplot(plt.gcf())  # Display the plot in Streamlit
