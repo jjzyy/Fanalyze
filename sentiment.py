@@ -214,7 +214,7 @@ normalized_scored_df = fetch_and_analyze_sentiments()
 with st.sidebar:
     selected = option_menu(
         "Fanalyze", 
-        ["Home", "Interactive Map", "Mean Compound Score", "Mean Compound Score by Revenue", "Mean Score by Championships", "Team Win Percentage", "Interactive Dashboard"], 
+        ["Home", "Interactive Map", "Sentiment Score", "Sentiment Score by Revenue", "Sentiment Score by Championships", "Sentiment Score by Team Win Percentage", "Interactive Dashboard"], 
         icons=['house', 'bar-chart','bar-chart', 'graph-up-arrow', 'graph-up-arrow', 'bar-chart'], 
         menu_icon="cast", 
         default_index=0
@@ -241,8 +241,8 @@ elif selected == "Interactive Dashboard":
     st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
 
 # Mean Sentiment Score
-elif selected == "Mean Compound Score":
-    st.title("Mean Compound Score")
+elif selected == "Sentiment Score":
+    st.title("Sentiment Score")
     
     iframe_code = """
         <iframe src="https://public.tableau.com/views/Fanalyze_17171395622390/Dashboard2?:showVizHome=no&:embed=true" 
@@ -253,8 +253,8 @@ elif selected == "Mean Compound Score":
     st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
 
 # Mean Compound Score by Revenue
-elif selected == "Mean Compound Score by Revenue":
-    st.title("Mean Compound Score by Revenue")
+elif selected == "Sentiment Score by Revenue":
+    st.title("Sentiment Score by Revenue")
     
     iframe_code = """
         <iframe src="https://public.tableau.com/views/Fanalyze_17171395622390/Dashboard3?:showVizHome=no&:embed=true" 
@@ -265,8 +265,8 @@ elif selected == "Mean Compound Score by Revenue":
     st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
 
 # Mean Score by Championships
-elif selected == "Mean Score by Championships":
-    st.title("Mean Score by Championships")
+elif selected == "Sentiment Score by Championships":
+    st.title("Sentiment Score by Championships")
     
     iframe_code = """
         <iframe src="https://public.tableau.com/views/Fanalyze_17171395622390/Dashboard4?:showVizHome=no&:embed=true" 
@@ -277,8 +277,8 @@ elif selected == "Mean Score by Championships":
     st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
 
 # Team Win Percentage
-elif selected == "Team Win Percentage":
-    st.title("Team Win Percentage")
+elif selected == "Sentiment Score by Team Win Percentage":
+    st.title("Sentiment Score by Team Win Percentage")
     
     iframe_code = """
         <iframe src="https://public.tableau.com/views/Fanalyze_17171395622390/Dashboard5?:showVizHome=no&:embed=true" 
