@@ -214,7 +214,7 @@ normalized_scored_df = fetch_and_analyze_sentiments()
 with st.sidebar:
     selected = option_menu(
         "Fanalyze", 
-        ["Home", "Interactive Map", "Mean Sentiment Score", "Mean Compound Score by Revenue", "Mean Score by Championships", "Team Win Percentage", "Interactive Dashboard"], 
+        ["Home", "Interactive Map", "Mean Compound Score", "Mean Compound Score by Revenue", "Mean Score by Championships", "Team Win Percentage", "Interactive Dashboard"], 
         icons=['house', 'bar-chart','bar-chart', 'graph-up-arrow', 'graph-up-arrow', 'bar-chart'], 
         menu_icon="cast", 
         default_index=0
@@ -241,8 +241,8 @@ elif selected == "Interactive Dashboard":
     st.components.v1.html(iframe_code, height=1000, width=1100)  # Adjust the Streamlit layout height if needed
 
 # Mean Sentiment Score
-elif selected == "Mean Sentiment Score":
-    st.title("Mean Sentiment Score")
+elif selected == "Mean Compound Score":
+    st.title("Mean Compound Score")
     
     iframe_code = """
         <iframe src="https://public.tableau.com/views/Fanalyze_17171395622390/Dashboard2?:showVizHome=no&:embed=true" 
