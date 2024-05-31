@@ -218,7 +218,7 @@ with st.sidebar:
 
 # Home page
 if selected == "Home":
-    st.title("Fanalyze: NBA Team Sentiment Analysis")
+    st.title("Fanalyze: NBA Sentiment Analysis")
     st.write("""
         This application analyzes the sentiment of NBA team subreddits using the VADER sentiment analysis tool.
         Use the sidebar to navigate through different sections of the app.
