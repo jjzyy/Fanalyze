@@ -126,7 +126,7 @@ elif selected == "Embedded Content":
     st.write("Here is the embedded content from the specified link.")
     components.html(
         """
-        <iframe src="https://arc.net/l/quote/fsdottsc" width="800" height="600"></iframe>
+        <iframe src="https://public.tableau.com/app/profile/aimee.tsai/viz/NBAFanSentiment/Dashboard1" width="800" height="600"></iframe>
         """, 
         height=600
     )
